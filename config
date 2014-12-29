@@ -1,0 +1,122 @@
+# Modkey
+set $mod Mod4
+
+# Aesthetics
+bindsym $mod+Shift+n border normal
+bindsym $mod+Shift+x border none
+bindsym $mod+Shift+o border 1pixel
+
+# Font
+# font -gohu-gohufont-*-*-*-*-11-*-*-*-*-*-*-*
+font -*-terminus-*-*-*-*-*-*-*-*-*-*-*-*
+
+# Mod+Mouse to move (isn't really needed)
+#floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec --no-startup-id urxvt
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# Start dmenu
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+Control+Left exec "i3-msg move left && i3-msg move left && i3-msg move left && i3-msg move left && i3-msg move left"
+bindsym $mod+Control+Down exec "i3-msg move down && i3-msg move down && i3-msg move down && i3-msg move down && i3-msg move down"
+bindsym $mod+Control+Up exec "i3-msg move up && i3-msg move up && i3-msg move up && i3-msg move up && i3-msg move up"
+bindsym $mod+Control+Right exec "i3-msg move right && i3-msg move right && i3-msg move right && i3-msg move right && i3-msg move right"
+
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# switch to workspace
+bindsym $mod+1 workspace 1: main
+bindsym $mod+2 workspace 2: web
+bindsym $mod+3 workspace 3: term
+bindsym $mod+4 workspace 4: aux
+bindsym $mod+5 workspace 5: vid
+bindsym $mod+6 workspace 6: dev
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1: main
+bindsym $mod+Shift+2 move container to workspace 2: web
+bindsym $mod+Shift+3 move container to workspace 3: term
+bindsym $mod+Shift+4 move container to workspace 4: aux
+bindsym $mod+Shift+5 move container to workspace 5: vid
+bindsym $mod+Shift+6 move container to workspace 6: dev
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3
+bindsym $mod+Shift+r restart
+# exit i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# lock i3
+bindsym $mod+Shift+l exec "~/bin/lock.sh"
+# screenshot
+bindsym $mod+Shift+s exec "scrot -q 100 ~/Pictures/Screenshots/scrot.jpg"
+
+# Colors
+ 
+# color variables
+set $activewindow #994c6d
+set $inactivewindow #2e1422
+set $activebar #8d6073
+set $inactivebar #604453
+set $bar #513645
+
+
+# Start i3bar
+bar {
+	status_command i3status -c ~/.i3/i3status.conf
+	position top
+   	colors {
+        	background #513645
+        	statusline #ffffff
+        	separator #513645
+ 
+        	focused_workspace  $activebar $activebar #ffe3f0
+        	active_workspace   $bar $bar #918189
+        	inactive_workspace $bar $bar #918189
+        	urgent_workspace   #2f343a #2f343a #ffe3f0
+    	}
+}
+
+#############
+#USER DEFINED
+#############
+
+exec feh --bg-scale ~/Pictures/Wallpaper/zerg-wall.png
