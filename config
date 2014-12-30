@@ -56,11 +56,11 @@ bindsym $mod+space focus mode_toggle
 
 # switch to workspace
 bindsym $mod+1 workspace 1: main
-bindsym $mod+2 workspace 2: web
+bindsym $mod+2 workspace 2: vid
 bindsym $mod+3 workspace 3: term
-bindsym $mod+4 workspace 4: aux
-bindsym $mod+5 workspace 5: vid
-bindsym $mod+6 workspace 6: dev
+bindsym $mod+4 workspace 4: steam
+bindsym $mod+5 workspace 5: dev
+bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
